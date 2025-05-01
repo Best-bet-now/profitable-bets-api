@@ -26,6 +26,10 @@ fake_bets = [
     {"game": "Packers vs Bears", "team": "Packers", "bookmaker": "BetMGM", "odds": 2.2, "ev": 7.5},
 ]
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to Profitable Bets API. Go to /bets to see betting data."}
+
 @app.get("/bets", response_model=List[Bet])
 def get_bets():
     return fake_bets
